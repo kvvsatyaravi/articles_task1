@@ -1,0 +1,42 @@
+<h1>Editing the user details</h1>
+<% if @user.errors.any? %>
+  <h2>the following are errors</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model: @user, local: true) do |f| %>
+
+  <div>
+    <%= f.label :username %>
+    <br>
+    <br>
+    <%= f.text_field :username %>
+    <br>
+    <br>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <br>
+    <br>
+    <%= f.email_field :email %>
+    <br>
+    <br>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <br>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <br>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to '[ Cancel and return to users listing ]', users_path %>

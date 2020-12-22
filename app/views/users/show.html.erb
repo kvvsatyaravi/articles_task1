@@ -1,0 +1,34 @@
+<h2>Showing User details  </h2>
+<ul>
+  <li><b>username:</b> <%= @user.username %></li>
+  <br>
+  <br>
+  <li><b>email</b> <%= @user.email %> </li>
+  <br><br><br>
+  <% if logged_in? && @user == current_user %>
+    <%= link_to "Edit your profile", edit_user_path(@user) %>
+  <% end %>
+  <br>
+  <%= link_to "user index", users_path %>
+</ul>
+<h3> Articles by <%=@user.username%></h3>
+
+<div>
+  <ul>
+  <% @article.each do |article| %>
+  <li>
+   <h5> <%= link_to article.title, article_path(article) %></h5>
+   <br>
+   <%= link_to "View", article_path(article)%>
+   <% if logged_in? and @user == current_user %>
+    <%= link_to "Edit", edit_article_path(article)%>
+     <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %>
+   <% end %>
+   <br> <br>
+   </li>
+  <% end %>
+  <% if logged_in? and @user == current_user %>
+    <%= link_to 'create new article',new_article_path %>
+  <% end %>
+  </ul>
+</div>

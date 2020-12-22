@@ -1,0 +1,53 @@
+<ul>
+
+ <% if logged_in? %>
+   <li>
+     <%= link_to current_user.username, user_path(current_user)%>
+
+   </li>
+   <li>
+
+     <%= link_to 'Logout', logout_path, method: :delete %>
+
+   </li>
+ <% else %>
+   <li>
+     <%= link_to 'Log in', login_path%>
+
+   </li>
+   <li>
+     <%= link_to 'Sign up', signup_path%>
+
+   </li>
+ <% end %>
+ </ul>
+<table>
+  <tr>
+    <th>title of article</th>
+    <th>description of article</th>
+    <th>Created by </th>
+    <th colspan="3">actions on article</th>
+  </tr>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%=article.title%> &nbsp;&nbsp;</td>
+        <td>  <%=article.description%>&nbsp;&nbsp;</td>
+        <td><%= link_to article.user.username, user_path(article.user) %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', article_path(article)%></td>
+        <% if logged_in? && article.user == current_user %>
+          <td><%= link_to 'edit', edit_article_path(article)%></td>
+          <td><%= link_to 'delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
+        <% end %>
+       </tr>
+      <%end%>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<div>
+  <% if logged_in? %>
+    <%= link_to 'create new article',new_article_path %>
+  <% end %>
+</div>

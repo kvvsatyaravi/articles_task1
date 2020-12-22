@@ -1,0 +1,35 @@
+<div>
+  <ul>
+
+   <% if logged_in? %>
+     <li>
+       <%= link_to current_user.username, user_path(current_user)%>
+       
+     </li>
+     <li>
+
+       <%= link_to 'Logout', logout_path, method: :delete %>
+
+     </li>
+   <% else %>
+     <li>
+       <%= link_to 'Log in', login_path%>
+
+     </li>
+     <li>
+       <%= link_to 'Sign up', signup_path%>
+
+     </li>
+   <% end %>
+   <li><%= link_to 'articles index', articles_path%></li>
+
+   <li><%= link_to 'users index', users_path%></li>
+  </ul>
+</div>
+<br><br><br>
+<div>
+  <h1>Hello, Welcome to Articles</h1>
+  <br><br>
+  <p>this is the home page for the Articles application</p>
+
+</div>
