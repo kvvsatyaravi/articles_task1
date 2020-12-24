@@ -1,9 +1,44 @@
-<h1>Log in</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<%= link_to "ARTICLES", root_path, class: "navbar-brand", id: "logo" %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <%= link_to "Articles Index", articles_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item active">
+    <%= link_to "Users Index", users_path, class: "nav-link" %>
+    </li>
+    
+      <li class="nav-item active">
+        <%= link_to 'Signup', signup_path, class: "nav-link" %>
+      </li> 
+
+    
+ </ul>
+</div>
+</nav>
+<div class="container">
+<div class="jumbotron">
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %>  alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %> 
+</div> 
+<h1>Login</h1>
 <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 <div>
   <%= f.label :email %>
   <br>
-  <br>
+  
   <%= f.email_field :email %>
   <br>
   <br>
@@ -12,7 +47,7 @@
 <div>
   <%= f.label :password %>
   <br>
-  <br>
+  
   <%= f.password_field :password %>
   <br>
   <br>
@@ -23,5 +58,7 @@
 <br><br><br>
 <% end %>
 <div>
-  <%= link_to '[ Cancel and return to users listing ]', users_path %>
+  <%= link_to 'Cancel and return to users listing', users_path %>
+</div>
+</div>
 </div>

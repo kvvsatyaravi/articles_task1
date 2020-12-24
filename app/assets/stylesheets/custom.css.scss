@@ -1,0 +1,90 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar{
+    background-attachment: #020213 !important;
+
+}
+nav-link {
+    color: rgb(32, 30, 30) !important;
+}
+  
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+  }
+  
+  #home-container {
+    margin-top: 25px;
+  }
+  
+  .jumbotron {
+    background-image: asset-url('jumbo-copy.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: cover;
+  }
+
+  
+  .home
+  {
+
+  }
+  
+  html,
+  body {
+    height: 100%;
+    
+  }
+  
+  #page-content {
+    flex: 1 0 auto;
+    background-color: rgb(197, 53, 53);
+
+  }
+  
+  #sticky-footer {
+    flex-shrink: none;
+  }
+
+  td
+  {
+    text-align:center;
+  }
+
+  th
+  {
+    text-align:center;
+    background-color: adjust-hue($color: #6db5d6, $degrees: 0);
+  }
+  .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+    }
+    
+    .alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+    }
+    
+    .alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+    }
+    
+    .alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+    }

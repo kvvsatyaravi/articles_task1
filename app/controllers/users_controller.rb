@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       flash[:notice]= "You have successfully signed up"
       redirect_to @user
     else
+      flash[:error]="There is a problem in signing up"
       render :new
     end
   end
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User was updated successfully."
       redirect_to @user
     else
+      flash[:notice] = "There is a problem in editing"
       render :edit
     end
   end
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     if current_user != @user
       #render html: helpers.tag.strong('You can edit or delete only your Account ')
-
+      flash[:notice] = "You can edit/delete your account only!"
       redirect_to @user
     end
   end

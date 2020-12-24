@@ -1,35 +1,62 @@
-<div>
-  <ul>
 
-   <% if logged_in? %>
-     <li>
-       <%= link_to current_user.username, user_path(current_user)%>
-       
-     </li>
-     <li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<%= link_to "ARTICLES", root_path, class: "navbar-brand", id: "logo" %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-       <%= link_to 'Logout', logout_path, method: :delete %>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <%= link_to "Articles Index", articles_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item active">
+    <%= link_to "Users Index", users_path, class: "nav-link" %>
+    </li>
+    <% if logged_in? %>
+      <li class="nav-item active">
+        <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+      </li>   
+      <li class="nav-item active">
+        <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link" %>
+      </li> 
+    
 
-     </li>
-   <% else %>
-     <li>
-       <%= link_to 'Log in', login_path%>
-
-     </li>
-     <li>
-       <%= link_to 'Sign up', signup_path%>
-
-     </li>
-   <% end %>
-   <li><%= link_to 'articles index', articles_path%></li>
-
-   <li><%= link_to 'users index', users_path%></li>
-  </ul>
+    <% end %>
+ </ul>
 </div>
-<br><br><br>
-<div>
-  <h1>Hello, Welcome to Articles</h1>
-  <br><br>
-  <p>this is the home page for the Articles application</p>
+</nav>
 
+<div class="container">
+<div class="jumbotron">
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %>  alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %> 
+</div> 
+  <h1 class="display-4">Articles-Task1</h1>
+  <p class="lead">This is the home-page for Articles .</p>
+  <hr class="my-4">
+  <% if !logged_in? %>
+  <p class="lead">
+  <p>You can signup or login here.</p>
+  <br>
+  <br>
+  
+    
+     <a class="btn btn-primary btn-lg" href="login" role="button" >Login</a>&nbsp;&nbsp;
+     <a class="btn btn-primary btn-lg" href="signup" role="button">Signup!</a>
+   
+  </p>
+  <% else %>
+      <h3>Thank you for using this website... Hope you have enjoyed it..</h3>
+  <% end %>
 </div>
+</div>
+
+

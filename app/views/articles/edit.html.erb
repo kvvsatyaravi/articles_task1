@@ -1,5 +1,50 @@
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<%= link_to "ARTICLES", root_path, class: "navbar-brand", id: "logo" %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <%= link_to "Articles Index", articles_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item active">
+    <%= link_to "Users Index", users_path, class: "nav-link" %>
+    </li>
+    <% if logged_in? %>
+      <li class="nav-item active">
+        <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+      </li>   
+      <li class="nav-item active">
+        <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link" %>
+      </li> 
+    <% else %> 
+      <li class="nav-item active">
+        <%= link_to 'Log-in', login_path, class: "nav-link" %>
+      </li> 
+      <li class="nav-item active">
+        <%= link_to 'Signup', signup_path, class: "nav-link" %>
+      </li> 
+
+    <% end %>
+ </ul>
+</div>
+</nav>
+<div class="container">
+<div class="jumbotron">
+<h1> Edting article: <%=@article.title%></h1>
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %> alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %> 
+</div> 
 <% if @article.errors.any? %>
   <h2>the following are errors</h2>
   <ul>
@@ -8,7 +53,7 @@
     <% end %>
   </ul>
 <% end %>
-<h1> Edting article: <%=@article.title%></h1>
+
 <%= form_with(model: @article, local: true) do |f| %>
 
   <div>
@@ -37,5 +82,7 @@
 <br>
 <br>
 <div>
-        <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-info" %>
+        <%= link_to ' Cancel and return to articles listing ', articles_path, class: "text-info" %>
+</div>
+</div>
 </div>

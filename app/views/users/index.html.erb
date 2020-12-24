@@ -1,33 +1,44 @@
-<ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<%= link_to "ARTICLES", root_path, class: "navbar-brand", id: "logo" %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
- <% if logged_in? %>
-   <li>
-     <%= link_to current_user.username, user_path(current_user)%>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <%= link_to "Articles Index", articles_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item active">
+    <%= link_to "Users Index", users_path, class: "nav-link" %>
+    </li>
+    <% if logged_in? %>
+      <li class="nav-item active">
+        <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+      </li>   
+      <li class="nav-item active">
+        <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link" %>
+      </li> 
+    <% else %> 
+      <li class="nav-item active">
+        <%= link_to 'Log-in', login_path, class: "nav-link" %>
+      </li> 
+      <li class="nav-item active">
+        <%= link_to 'Signup', signup_path, class: "nav-link" %>
+      </li> 
 
-   </li>
-   <li>
-
-     <%= link_to 'Logout', logout_path, method: :delete %>
-
-   </li>
- <% else %>
-   <li>
-     <%= link_to 'Log in', login_path%>
-
-   </li>
-   <li>
-     <%= link_to 'Sign up', signup_path%>
-
-   </li>
- <% end %>
+    <% end %>
  </ul>
-
-<table>
+</div>
+</nav>
+<div class="container">
+<div class="jumbotron">
+<table class="table table-hover">
   <tr>
-    <th>user name</th>
-    <th>email</th>
-    <th>no of articles </th>
-    <th colspan="3">actions on article</th>
+    <th><h3><b>User Name</b></h3></th>
+    <th><h3><b>User Email</b></h3></th>
+    <th><h3><b>No of Articles Created</b></h3></th>
+    <th colspan="3"><h3><b>Actions on User</b></h3></th>
   </tr>
   <tbody>
     <% @user.each do |user| %>
@@ -47,3 +58,13 @@
 <br>
 <br>
 <br>
+<% if logged_in? %>
+<p class="lead">
+    
+     <a class="btn btn-primary btn-lg" href="users/new" role="button" >Create new User</a>
+     
+   
+  </p>
+  <% end %>
+</div>
+</div>

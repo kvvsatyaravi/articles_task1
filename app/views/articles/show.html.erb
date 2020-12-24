@@ -1,4 +1,50 @@
-<h2>Showing article details  </h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<%= link_to "ARTICLES", root_path, class: "navbar-brand", id: "logo" %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <%= link_to "Articles Index", articles_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item active">
+    <%= link_to "Users Index", users_path, class: "nav-link" %>
+    </li>
+    <% if logged_in? %>
+      <li class="nav-item active">
+        <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+      </li>   
+      <li class="nav-item active">
+        <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link" %>
+      </li> 
+    <% else %> 
+      <li class="nav-item active">
+        <%= link_to 'Log-in', login_path, class: "nav-link" %>
+      </li> 
+      <li class="nav-item active">
+        <%= link_to 'Signup', signup_path, class: "nav-link" %>
+      </li> 
+
+    <% end %>
+ </ul>
+</div>
+</nav>
+<div class="container">
+<div class="jumbotron">
+<h2><b>Showing article details  </b></h2>
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %> alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %> 
+</div> 
+
 <ul>
   <li><b>Title:</b> <%= @article.title %></li>
   <br>
@@ -7,3 +53,12 @@
   <br><br>
   <li><b>Created by: </b> <%= @article.user.username %> </li>
 </ul>
+<br><br>
+<% if logged_in? && current_user == @article.user %>
+<p class="lead">
+<%= link_to 'Edit Article', edit_article_path(@article)%>&nbsp;&nbsp;
+<%= link_to 'Delete Article', article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
+  </p>
+  <% end %>
+</div>
+</div>

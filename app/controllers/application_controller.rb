@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   def require_user
     if !logged_in?
       #render html: helpers.tag.strong('You can edit or delete only your Account ')
+      flash[:error] = "You must login first...."
       redirect_to login_path
     end
+
   end
 end
