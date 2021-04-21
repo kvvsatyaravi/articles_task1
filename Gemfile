@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '3.0.1'
 
 
 
@@ -61,7 +61,7 @@ group :test do
   gem 'factory_girl_rails'
 end
 group :production do
-  gem 'pg'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
