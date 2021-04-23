@@ -3,12 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
-
-
+gem 'bundler', '=2.2.15'
+gem 'rexml'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-gem 'wdm', '>= 0.1.0'
+platforms :mswin do
+gem 'wdm', '>= 0.1.0', :group => [:development]
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.0'
 # Use sqlite3 as the database for Active Record

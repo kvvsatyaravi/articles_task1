@@ -1328,7 +1328,7 @@ astw@~0.1.0:
   resolved "https://registry.yarnpkg.com/astw/-/astw-0.1.0.tgz#098be2758a6e9e9e15465d4fc4ba36265de11085"
   integrity sha1-CYvidYpunp4VRl1PxLo2Jl3hEIU=
   dependencies:
-    esprima-six "0.0.3"
+    esprima-six "1.0.5"
 
 async-each@^1.0.1:
   version "1.0.3"
@@ -2774,7 +2774,7 @@ derequire@~0.6.0:
   resolved "https://registry.yarnpkg.com/derequire/-/derequire-0.6.1.tgz#cce8ee25380de715deb61900f0bdd38222928788"
   integrity sha1-zOjuJTgN5xXethkA8L3TgiKSh4g=
   dependencies:
-    esprima-six "~0.0.3"
+    esprima-six "1.0.5"
     esrefactor "~0.1.0"
     estraverse "~1.5.0"
 
@@ -3043,7 +3043,7 @@ eslint-scope@^4.0.3:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-esprima-six@0.0.3, esprima-six@~0.0.3:
+esprima-six@1.0.5, esprima-six@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/esprima-six/-/esprima-six-1.0.5.tgz#2e2ada199e3c38cbc1835c13fc9050bee3e80e24"
   integrity sha1-LiraGZ48OMvBg1wT/JBQvuPoDiQ=
@@ -6450,19 +6450,14 @@ querystring-es3@^0.2.0:
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
   integrity sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM=
 
-querystring@0.2.0:
+querystring@0.2.0, "querystring@https://github.com/substack/querystring/archive/0.2.0-ie8.tar.gz":
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
-  integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
+  resolved "https://github.com/substack/querystring/archive/0.2.0-ie8.tar.gz#d0b64008626ad71434e0ea3d50dec2afd50721ab"
 
 "querystring@>=0.1.0 <0.2.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.1.0.tgz#cb76a26cda0a10a94163fcdb3e132827f04b7b10"
   integrity sha1-y3aibNoKEKlBY/zbPhMoJ/BLexA=
-
-"querystring@https://github.com/substack/querystring/archive/0.2.0-ie8.tar.gz":
-  version "0.2.0"
-  resolved "https://github.com/substack/querystring/archive/0.2.0-ie8.tar.gz#d0b64008626ad71434e0ea3d50dec2afd50721ab"
 
 querystringify@^2.1.1:
   version "2.2.0"
@@ -7623,7 +7618,7 @@ syntax-error@~0.1.0:
   resolved "https://registry.yarnpkg.com/syntax-error/-/syntax-error-0.1.0.tgz#8cb515e730fe4f19d3a887035f8630e6494aac65"
   integrity sha1-jLUV5zD+TxnTqIcDX4Yw5klKrGU=
   dependencies:
-    esprima-six "0.0.3"
+    esprima-six "1.0.5"
 
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
